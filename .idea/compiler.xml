@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microsvc.users" />
+        <module name="microsvc.comments" />
+        <module name="microsvc.file.posts" />
+        <module name="microsvc.sub.categories" />
+        <module name="microsvc.config" />
+        <module name="microsvc.favourites" />
+        <module name="microsvc.likes" />
+        <module name="microsvc.posts" />
+        <module name="microsvc.categories" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microsvc.categories" options="-parameters" />
+      <module name="microsvc.comments" options="-parameters" />
+      <module name="microsvc.config" options="-parameters" />
+      <module name="microsvc.favourites" options="-parameters" />
+      <module name="microsvc.file.posts" options="-parameters" />
+      <module name="microsvc.likes" options="-parameters" />
+      <module name="microsvc.posts" options="-parameters" />
+      <module name="microsvc.sub.categories" options="-parameters" />
+      <module name="microsvc.users" options="-parameters" />
+      <module name="reddit" options="" />
+    </option>
+  </component>
+</project>

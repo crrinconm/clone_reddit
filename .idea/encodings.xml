@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/microsvc.categories/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsvc.comments/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsvc.config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsvc.favourites/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsvc.file.posts/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsvc.likes/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsvc.posts/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsvc.sub.categories/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsvc.users/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
