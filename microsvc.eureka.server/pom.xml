@@ -6,11 +6,12 @@
 		<groupId>org.example</groupId>
 		<artifactId>reddit</artifactId>
 		<version>1.0-SNAPSHOT</version>
+
 	</parent>
 	<groupId>com.clone</groupId>
-	<artifactId>microsvc.config</artifactId>
+	<artifactId>microsvc.eureka.server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microsvc.config</name>
+	<name>microsvc.eureka.server</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -19,7 +20,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
 		<dependency>
@@ -51,5 +52,15 @@
 			</plugin>
 		</plugins>
 	</build>
+	<repositories>
+		<repository>
+			<id>netflix-candidates</id>
+			<name>Netflix Candidates</name>
+			<url>https://artifactory-oss.prod.netflix.net/artifactory/maven-oss-candidates</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>

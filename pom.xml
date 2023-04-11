@@ -27,6 +27,7 @@
         <module> microsvc.sub.categories</module>
         <module> microsvc.users</module>
         <module> microsvc.config</module>
+        <module> microsvc.eureka.server</module>
     </modules>
 
     <properties>

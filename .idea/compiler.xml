@@ -12,6 +12,7 @@
         <module name="microsvc.file.posts" />
         <module name="microsvc.sub.categories" />
         <module name="microsvc.config" />
+        <module name="microsvc.eureka.server" />
         <module name="microsvc.favourites" />
         <module name="microsvc.likes" />
         <module name="microsvc.posts" />
@@ -24,6 +25,7 @@
       <module name="microsvc.categories" options="-parameters" />
       <module name="microsvc.comments" options="-parameters" />
       <module name="microsvc.config" options="-parameters" />
+      <module name="microsvc.eureka.server" options="-parameters" />
       <module name="microsvc.favourites" options="-parameters" />
       <module name="microsvc.file.posts" options="-parameters" />
       <module name="microsvc.likes" options="-parameters" />
