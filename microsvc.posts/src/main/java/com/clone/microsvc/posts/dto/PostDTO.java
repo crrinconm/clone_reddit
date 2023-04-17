@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 public class PostDTO {
 
-    private Long id;
+    private String id;
 
     @NotNull
     @NotBlank(message = "This field (title) can´t be empty")
@@ -23,4 +23,6 @@ public class PostDTO {
     @NotNull
     @NotBlank(message = "This field (description) can´t be empty")
     private String description;
+
+    private Long subCategoryId;
 }

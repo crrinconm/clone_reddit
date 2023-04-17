@@ -3,7 +3,6 @@ package com.clone.microsvc.posts.services;
 import com.clone.microsvc.posts.dto.PostDTO;
 import com.clone.microsvc.posts.models.Post;
 import com.clone.microsvc.posts.repositories.PostRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,15 +34,15 @@ public class PostServiceImp implements PostService{
     }
 
     @Override
-    public PostDTO findById(Long id) {
+    public PostDTO findById(String id) {
         Post post= postRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("No se encontró por el id " + id));
+                .orElseThrow(null);
         return modelMapper.map(post,PostDTO.class);
     }
 
     @Override
-    public PostDTO update(Long id, PostDTO postDTO) {
-        Post post= postRepository.getReferenceById(id);
+    public PostDTO update(String id, PostDTO postDTO) {
+        Post post= postRepository.findById(id).orElseThrow(null);
         post.setTitle(postDTO.getTitle());
         post.setDescription(postDTO.getDescription());
         Post save= postRepository.save(post);
@@ -51,7 +50,7 @@ public class PostServiceImp implements PostService{
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         postRepository.deleteById(id);
 
     }

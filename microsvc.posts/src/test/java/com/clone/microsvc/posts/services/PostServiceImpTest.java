@@ -33,13 +33,13 @@ class PostServiceImpTest {
     @BeforeEach
     void setUp(){
         Mockito.lenient().when(modelMapper.map(Mockito.any(), Mockito.eq(Post.class))).thenReturn(Post.builder()
-                .id(1L)
+                .id("1L")
                 .title("News")
                 .description("Murdered").build());
 
 
         Mockito.lenient().when(modelMapper.map(Mockito.any(), Mockito.eq(PostDTO.class))).thenReturn(PostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .title("News")
                 .description("Murdered").build());
     }
@@ -48,12 +48,12 @@ class PostServiceImpTest {
         //Generate
 
         PostDTO postDTO= PostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .title("News")
                 .description("Murdered").build();
 
         Post post= Post.builder()
-                .id(1L)
+                .id("1L")
                 .title("News")
                 .description("Murdered").build();
 
@@ -71,12 +71,12 @@ class PostServiceImpTest {
     @Test
     void testFindAll(){
         Post post1 = Post.builder()
-                .id(1L)
+                .id("1L")
                 .title("News")
                 .description("Murdered").build();
 
         Post post2 = Post.builder()
-                .id(2L)
+                .id("2L")
                 .title("News")
                 .description("Murdered").build();
 
@@ -96,14 +96,14 @@ class PostServiceImpTest {
     void testFindById(){
         //Generate
         Post post= Post.builder()
-                .id(1L)
+                .id("1L")
                 .title("News")
                 .description("Murdered").build();
 
         //When
-        Mockito.when(postRepository.findById(1L)).thenReturn(Optional.of(post));
+        Mockito.when(postRepository.findById("1L")).thenReturn(Optional.of(post));
 
-        PostDTO postDTO= postServiceImp.findById(1L);
+        PostDTO postDTO= postServiceImp.findById("1L");
 
         //Then
         assertEquals(post.getTitle(), postDTO.getTitle());
@@ -114,25 +114,25 @@ class PostServiceImpTest {
 
 
         Post post= Post.builder()
-                .id(1L)
+                .id("1L")
                 .title("News")
                 .description("Murdered").build();
 
         PostDTO postDTO= PostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .title("News")
                 .description("Murdered").build();
 
         Post saved= Post.builder()
-                .id(1L)
+                .id("1L")
                 .title(postDTO.getTitle())
                 .description(postDTO.getDescription()).build();
 
         //When
-        Mockito.when(postRepository.getReferenceById(1L)).thenReturn(post);
+        Mockito.when(postRepository.findById("1L")).thenReturn(Optional.of(post));
         Mockito.when(postRepository.save(saved)).thenReturn(saved);
 
-        PostDTO postDTO1= postServiceImp.update(1L, postDTO);
+        PostDTO postDTO1= postServiceImp.update("1L", postDTO);
         //Then
 
         assertEquals(saved.getDescription(), postDTO1.getDescription());
@@ -142,8 +142,8 @@ class PostServiceImpTest {
     @Test
     void testDelete(){
 
-        postRepository.deleteById(1L);
-        Mockito.verify(postRepository).deleteById(1L);
+        postRepository.deleteById("1L");
+        Mockito.verify(postRepository).deleteById("1L");
 
     }
 }

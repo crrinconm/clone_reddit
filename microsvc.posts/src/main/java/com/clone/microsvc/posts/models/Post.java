@@ -1,33 +1,33 @@
 package com.clone.microsvc.posts.models;
 
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 
-@Entity
-@Table(name = "posts")
+@Document(collection= "posts")
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    @Column(name="title", unique = true)
     private String title;
 
-    @Column(name = "description", nullable = false)
     private String description;
 
-    /*@Column(name = "sub_category_id")
+    //Aquí se van a relacionar, pero le voy a cambiar el nombre como especifiqué en la anotación
+    @Field("sub_category_id")
     private Long sub_category;
 
-    @Column(name = "user_id")
+    /*@Column(name = "user_id")
     private Long user_id;*/
 }

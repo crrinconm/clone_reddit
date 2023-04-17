@@ -16,7 +16,7 @@ public class PostController {
     private PostService postService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<PostDTO> findById (@PathVariable ("id") Long id){
+    public ResponseEntity<PostDTO> findById (@PathVariable ("id") String id){
         return ResponseEntity.ok(postService.findById(id));
     }
 
@@ -26,12 +26,12 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PostDTO> update (@PathVariable("id") Long id, @RequestBody PostDTO postDTO){
+    public ResponseEntity<PostDTO> update (@PathVariable("id") String id, @RequestBody PostDTO postDTO){
         return ResponseEntity.ok(postService.update(id, postDTO));
     }
 
     @DeleteMapping("/{id}")
-    void delete (@PathVariable ("id") Long id){
+    void delete (@PathVariable ("id") String id){
         postService.delete(id);
     }
 }

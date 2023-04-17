@@ -39,13 +39,13 @@ class PostControllerTest {
 
         //Given
         PostDTO postDTO  = PostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .title("Superheroes")
                 .description("Murdered").build();
 
 
         //When
-        Mockito.when(postService.findById(1L)).thenReturn(postDTO);
+        Mockito.when(postService.findById("1L")).thenReturn(postDTO);
 
         //Then
 
@@ -54,7 +54,7 @@ class PostControllerTest {
                         .content(this.objectMapper.writeValueAsBytes(postDTO)))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id") .value(1))
+                .andExpect(jsonPath("$.id") .value("1L"))
                 .andExpect((jsonPath("$.description") .value("Murdered")));
     }
 
@@ -62,7 +62,7 @@ class PostControllerTest {
     void testCreate() throws Exception{
 
         PostDTO postDTO  = PostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .title("Superheroes")
                 .description("Murdered").build();
 
@@ -77,7 +77,7 @@ class PostControllerTest {
                         .content(this.objectMapper.writeValueAsString(postDTO)))
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id") .value(1))
+                .andExpect(jsonPath("$.id") .value("1L"))
                 .andExpect(jsonPath("$.title") .value("Superheroes"));
     }
 
@@ -85,12 +85,12 @@ class PostControllerTest {
     void testUpdate() throws Exception{
 
         PostDTO postDTO  = PostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .title("Superheroes")
                 .description("Murdered").build();
 
         //When
-        Mockito.when(postService.update(1L, postDTO)).thenReturn(postDTO);
+        Mockito.when(postService.update("1L", postDTO)).thenReturn(postDTO);
 
         //Then
         mockMvc.perform(put("/api/post/" + postDTO.getId())
@@ -98,7 +98,7 @@ class PostControllerTest {
                         .content(this.objectMapper.writeValueAsString(postDTO)))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id") .value(1))
+                .andExpect(jsonPath("$.id") .value("1L"))
                 .andExpect(jsonPath("$.description") .value("Murdered"));
 
     }
@@ -106,14 +106,14 @@ class PostControllerTest {
     @Test
     void testDelete() throws Exception{
         PostDTO postDTO  = PostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .title("Superheroes")
                 .description("Murdered").build();
 
         mockMvc.perform(delete("/api/post/" + postDTO.getId()))
                 .andExpect(status().isOk());
 
-        Mockito.verify(postService).delete(1L);
+        Mockito.verify(postService).delete("1L");
     }
 
 

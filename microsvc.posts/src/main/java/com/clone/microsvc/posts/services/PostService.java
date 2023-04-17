@@ -9,7 +9,7 @@ public interface PostService {
 
     PostDTO create(PostDTO postDTO);
     List<PostDTO> findAll();
-    PostDTO findById(Long id);
-    PostDTO update (Long ig, PostDTO postDTO);
-    void delete (Long id);
+    PostDTO findById(String id);
+    PostDTO update (String id, PostDTO postDTO);
+    void delete (String id);
 }
