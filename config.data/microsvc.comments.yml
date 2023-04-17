@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/comment_module
     username: mysql
-    password: mysql2206
+    password: mysql2206*
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     generate-ddl: true
