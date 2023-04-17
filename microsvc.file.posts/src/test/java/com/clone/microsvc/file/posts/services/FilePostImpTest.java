@@ -34,22 +34,22 @@ class FilePostImpTest {
     @BeforeEach
     void setUp() {
         Mockito.lenient().when(modelMapper.map(Mockito.any(), Mockito.eq(FilePost.class))).thenReturn(FilePost.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.jpg").build());
 
         Mockito.lenient().when(modelMapper.map(Mockito.any(), Mockito.eq(FilePostDTO.class))).thenReturn(FilePostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.jpg").build());
     }
     @Test
     void testCreate(){
         //Generate
         FilePostDTO filePostDTO= FilePostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.jpg").build();
 
         FilePost filePost= FilePost.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.jpg").build();
 
         //When
@@ -67,13 +67,13 @@ class FilePostImpTest {
     void testFindById(){
         //Generate
         FilePost filePost= FilePost.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.jpg").build();
 
         //When
-        Mockito.when(filePostRepository.findById(1L)).thenReturn(Optional.of(filePost));
+        Mockito.when(filePostRepository.findById("1L")).thenReturn(Optional.of(filePost));
 
-        FilePostDTO filePostDTO= filePostImp.findById(1L);
+        FilePostDTO filePostDTO= filePostImp.findById("1L");
 
         //Then
 
@@ -84,10 +84,10 @@ class FilePostImpTest {
     void testFindAll(){
         //Generate
         FilePost filePost1= FilePost.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.jpg").build();
         FilePost filePost2= FilePost.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.jpg").build();
 
         List<FilePost> filePostList= Arrays.asList(filePost1, filePost2);
@@ -105,23 +105,23 @@ class FilePostImpTest {
     void testUpdate(){
         //Generate
         FilePost filePost= FilePost.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.jpg").build();
 
         FilePostDTO filePostDTO= FilePostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.jpg").build();
 
         FilePost saved= FilePost.builder()
-                .id(1L)
+                .id("1L")
                 .file(filePostDTO.getFile()).build();
 
         //When
-        Mockito.when(filePostRepository.getReferenceById(1L)).thenReturn(filePost);
+        Mockito.when(filePostRepository.findById("1L")).thenReturn(Optional.of(filePost));
 
         Mockito.when(filePostRepository.save(saved)).thenReturn(saved);
 
-        FilePostDTO filePostDTO1= filePostImp.update(1L, filePostDTO);
+        FilePostDTO filePostDTO1= filePostImp.update("1L", filePostDTO);
         //Then
         assertEquals(saved.getFile(),filePostDTO1.getFile() );
     }
@@ -129,7 +129,7 @@ class FilePostImpTest {
     @Test
     void testDelete(){
 
-        filePostRepository.deleteById(1L);
-        Mockito.verify(filePostRepository).deleteById(1L);
+        filePostRepository.deleteById("1L");
+        Mockito.verify(filePostRepository).deleteById("1L");
     }
 }

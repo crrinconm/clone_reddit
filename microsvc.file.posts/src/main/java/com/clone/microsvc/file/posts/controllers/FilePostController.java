@@ -16,7 +16,7 @@ public class FilePostController {
     private FilePostService filePostService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<FilePostDTO> findById (@PathVariable ("id")Long id){
+    public ResponseEntity<FilePostDTO> findById (@PathVariable ("id")String id){
         return ResponseEntity.ok(filePostService.findById(id));
     }
 
@@ -26,12 +26,12 @@ public class FilePostController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<FilePostDTO> update (@PathVariable ("id") Long id, @RequestBody FilePostDTO filePostDTO){
+    public ResponseEntity<FilePostDTO> update (@PathVariable ("id") String id, @RequestBody FilePostDTO filePostDTO){
         return ResponseEntity.ok(filePostService.update(id, filePostDTO));
     }
 
     @DeleteMapping("/{id}")
-    void delete (@PathVariable ("id") Long id){
+    void delete (@PathVariable ("id") String id){
         filePostService.delete(id);
     }
 }

@@ -9,11 +9,11 @@ public interface FilePostService {
 
     FilePostDTO create (FilePostDTO filePostDTO);
 
-    FilePostDTO findById (Long id);
+    FilePostDTO findById (String id);
 
     List<FilePostDTO> findAll ();
 
-    FilePostDTO update (Long id, FilePostDTO filePostDTO);
+    FilePostDTO update (String id, FilePostDTO filePostDTO);
 
-    void delete (Long id);
+    void delete (String id);
 }

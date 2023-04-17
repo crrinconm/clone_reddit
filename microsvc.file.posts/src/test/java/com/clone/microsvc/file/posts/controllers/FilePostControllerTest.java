@@ -40,11 +40,11 @@ class FilePostControllerTest {
         //Given
 
         FilePostDTO filePostDTO= FilePostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.pdf").build();
 
         //When
-        Mockito.when(filePostService.findById(1L)).thenReturn(filePostDTO);
+        Mockito.when(filePostService.findById("1L")).thenReturn(filePostDTO);
 
         //Then
         mockMvc.perform(get("/api/filepost/" + filePostDTO.getId())
@@ -52,7 +52,7 @@ class FilePostControllerTest {
                 .content(this.objectMapper.writeValueAsString(filePostDTO)))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id") .value(1))
+                .andExpect(jsonPath("$.id") .value("1L"))
                 .andExpect(jsonPath("$.file") .value("file.pdf"));
 
     }
@@ -62,7 +62,7 @@ class FilePostControllerTest {
 
         //Given
         FilePostDTO filePostDTO= FilePostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.pdf").build();
 
         //When
@@ -75,7 +75,7 @@ class FilePostControllerTest {
                 .content(this.objectMapper.writeValueAsString(filePostDTO)))
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id") .value(1))
+                .andExpect(jsonPath("$.id") .value("1L"))
                 .andExpect(jsonPath("$.file") .value("file.pdf"));
 
     }
@@ -84,11 +84,11 @@ class FilePostControllerTest {
     void testUpdate() throws Exception{
         //Given
         FilePostDTO filePostDTO= FilePostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.pdf").build();
 
         //When
-        Mockito.when(filePostService.update(1L, filePostDTO)).thenReturn(filePostDTO);
+        Mockito.when(filePostService.update("1L", filePostDTO)).thenReturn(filePostDTO);
 
         //Then
 
@@ -97,7 +97,7 @@ class FilePostControllerTest {
                 .content(this.objectMapper.writeValueAsString(filePostDTO)))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id") .value(1))
+                .andExpect(jsonPath("$.id") .value("1L"))
                 .andExpect(jsonPath("$.file") .value("file.pdf"));
     }
 
@@ -105,13 +105,13 @@ class FilePostControllerTest {
     void testDelete() throws Exception{
 
         FilePostDTO filePostDTO= FilePostDTO.builder()
-                .id(1L)
+                .id("1L")
                 .file("file.pdf").build();
 
         mockMvc.perform(delete("/api/filepost/" + filePostDTO.getId()))
                 .andExpect(status().isOk());
 
-        Mockito.verify(filePostService).delete(1L);
+        Mockito.verify(filePostService).delete("1L");
 
 
     }

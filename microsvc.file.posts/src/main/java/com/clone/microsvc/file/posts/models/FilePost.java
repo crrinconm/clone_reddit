@@ -1,26 +1,27 @@
 package com.clone.microsvc.file.posts.models;
 
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 
-@Entity
-@Table(name = "fileposts")
+@Document(collection = "fileposts")
 public class FilePost {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    @Column(name = "files", nullable = false)
     private String file;
 
- //   private Long post_id;
+    @Field("post_id")
+    private Long postId;
 }

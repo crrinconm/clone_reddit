@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 
 public class FilePostDTO {
 
-    private Long id;
+    private String id;
     private String file;
+    private Long postId;
+
 }

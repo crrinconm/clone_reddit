@@ -3,7 +3,6 @@ package com.clone.microsvc.file.posts.services;
 import com.clone.microsvc.file.posts.dto.FilePostDTO;
 import com.clone.microsvc.file.posts.models.FilePost;
 import com.clone.microsvc.file.posts.repositories.FilePostRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,9 +27,9 @@ public class FilePostImp implements FilePostService{
     }
 
     @Override
-    public FilePostDTO findById(Long id) {
+    public FilePostDTO findById(String id) {
         FilePost filePost= filePostRepository.findById(id)
-                .orElseThrow(()-> new EntityNotFoundException("No se encontró por el id " + id));
+                .orElseThrow(null);
         return modelMapper.map(filePost, FilePostDTO.class);
     }
 
@@ -41,15 +40,15 @@ public class FilePostImp implements FilePostService{
     }
 
     @Override
-    public FilePostDTO update(Long id, FilePostDTO filePostDTO) {
-        FilePost filePost= filePostRepository.getReferenceById(id);
+    public FilePostDTO update(String id, FilePostDTO filePostDTO) {
+        FilePost filePost= filePostRepository.findById(id).orElseThrow(null);
         filePost.setFile(filePostDTO.getFile());
         FilePost save= filePostRepository.save(filePost);
         return modelMapper.map(save, FilePostDTO.class);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         filePostRepository.deleteById(id);
     }
 }
