@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
@@ -20,6 +22,10 @@ public class UserController {
         return ResponseEntity.ok(userService.findById(id));
     }
 
+    @GetMapping
+    public ResponseEntity<List<UserDTO>> findAll(){
+        return ResponseEntity.ok(userService.findAll());
+    }
     @PostMapping
     public ResponseEntity<UserDTO> create (@Valid @RequestBody UserDTO userDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.create(userDTO));

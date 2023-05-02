@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping ("/api/like")
 public class LikeController {
@@ -20,6 +22,10 @@ public class LikeController {
         return ResponseEntity.ok(likeService.findById(id));
     }
 
+    @GetMapping
+    public ResponseEntity<List<LikeDTO>> findAll(){
+        return ResponseEntity.ok(likeService.findAll());
+    }
     @PostMapping
     public ResponseEntity<LikeDTO> create (@Valid @RequestBody LikeDTO likeDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(likeService.create(likeDTO));

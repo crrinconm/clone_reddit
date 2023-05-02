@@ -26,10 +26,10 @@ public class FavouriteController {
         return ResponseEntity.ok(favouriteService.findById(id));
     }
 
-    /*@GetMapping
+    @GetMapping
     public ResponseEntity<List<FavouriteDTO>> findAll (){
         return ResponseEntity.ok(favouriteService.findAll());
-    }*/
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<FavouriteDTO> update (@PathVariable("id") Long id, @RequestBody FavouriteDTO favouriteDTO){

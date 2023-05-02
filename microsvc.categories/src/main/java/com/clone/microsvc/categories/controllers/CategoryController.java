@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -26,6 +28,11 @@ public class CategoryController {
     @GetMapping("/{id}")
     public ResponseEntity<CategoryDTO> findById (@PathVariable ("id") Long id) {
         return ResponseEntity.ok(categoryService.findById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CategoryDTO>> findAll (){
+        return ResponseEntity.ok(categoryService.findAll());
     }
 
     @PutMapping("/update/{id}")

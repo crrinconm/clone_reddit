@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/comment")
 public class CommentController {
@@ -20,6 +22,11 @@ public class CommentController {
     @GetMapping("/{id}")
     public ResponseEntity<CommentDTO> findById (@PathVariable ("id") Long id){
         return ResponseEntity.ok(commentService.findById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CommentDTO>> findAll(){
+        return ResponseEntity.ok(commentService.findAll());
     }
 
     @PostMapping
