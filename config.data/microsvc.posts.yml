@@ -7,7 +7,6 @@ spring:
       uri: mongodb+srv://crrinconm:GVVIuwK25MwRVyUh@clone-reddit.rzy9bqv.mongodb.net/?retryWrites=true&w=majority
       database: posts
 
-
 eureka:
   client:
     serviceUrl:
