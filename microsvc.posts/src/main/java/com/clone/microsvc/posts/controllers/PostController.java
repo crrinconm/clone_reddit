@@ -22,7 +22,7 @@ public class PostController {
         return ResponseEntity.ok(postService.findById(id));
     }
 
-    @GetMapping("/subcategory/{id}")
+    @GetMapping("/sub-categories/{id}")
     public ResponseEntity<List<PostDTO>> findBySubcategoryId (@PathVariable ("id") Long subCategoryId){
         return ResponseEntity.ok(postService.findBySubCategoryId(subCategoryId));
     }
