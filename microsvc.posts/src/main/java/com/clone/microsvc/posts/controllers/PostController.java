@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/post")
 public class PostController {
@@ -18,6 +20,11 @@ public class PostController {
     @GetMapping("/{id}")
     public ResponseEntity<PostDTO> findById (@PathVariable ("id") String id){
         return ResponseEntity.ok(postService.findById(id));
+    }
+
+    @GetMapping("/subcategory/{id}")
+    public ResponseEntity<List<PostDTO>> findBySubcategoryId (@PathVariable ("id") Long subCategoryId){
+        return ResponseEntity.ok(postService.findBySubCategoryId(subCategoryId));
     }
 
     @PostMapping()

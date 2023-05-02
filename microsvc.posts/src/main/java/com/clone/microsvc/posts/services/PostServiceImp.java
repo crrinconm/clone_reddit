@@ -34,6 +34,12 @@ public class PostServiceImp implements PostService{
     }
 
     @Override
+    public List<PostDTO> findBySubCategoryId(Long subCategoryId) {
+        List<Post> posts= postRepository.findBySubCategoryId(subCategoryId);
+        return posts.stream().map(post -> modelMapper.map(post, PostDTO.class)).collect(Collectors.toList());
+    }
+
+    @Override
     public PostDTO findById(String id) {
         Post post= postRepository.findById(id)
                 .orElseThrow(null);
