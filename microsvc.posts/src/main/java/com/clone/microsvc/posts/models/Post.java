@@ -26,8 +26,7 @@ public class Post {
 
     //Aquí se van a relacionar, pero le voy a cambiar el nombre como especifiqué en la anotación
     @Field("sub_category_id")
-    private Long sub_category;
+    private Long subCategoryId;
 
-    /*@Column(name = "user_id")
-    private Long user_id;*/
+
 }
