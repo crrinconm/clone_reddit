@@ -27,12 +27,12 @@ public class PostController {
         return ResponseEntity.ok(postService.findAll());
     }
 
-    @GetMapping("/sub-categories/{id}")
+    @GetMapping("/sub-categories/{id}")         //Aquí le estoy pasando el id de la subcategoría ya creada
     public ResponseEntity<List<PostDTO>> findBySubcategoryId (@PathVariable ("id") Long subCategoryId){
         return ResponseEntity.ok(postService.findBySubCategoryId(subCategoryId));
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<PostDTO> create (@Valid @RequestBody PostDTO postDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(postService.create(postDTO));
     }
